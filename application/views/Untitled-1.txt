@@ -1,0 +1,33 @@
+<select name="Item">
+	<?php foreach($listado as $item):?>	
+	<option><?= $item['Item'];?></option>
+	<?php endforeach;?>	
+	</select>
+
+	// codigo de mostrar y eliminar
+
+	<div id="body">
+	<table class ="table">
+		<tr>
+		<th>ITEM</th>
+		<th>DESCRIPCION</th>
+		</tr>
+	<?php foreach($listado as $item):?>	
+		<tr>
+		<?='<td>'.$item['Item'].'</td>';  ?>
+		<?='<td>'.$item['Descripcion'].'</td>';?>
+		<td><a class="btn"  id="cancel" href="<?=base_url();?>borrar/<?=$item['id']?>"><button >Borrar</button></a></td>
+		</tr>
+	<?php endforeach;?>	
+	</table>
+
+	// crear input
+	<?php 
+	$data_descrip = array(
+	'name'=>'Descripcion',
+	'id'=>'descripcion',
+	'placeholder'=>'Descripcion'	
+	);
+	echo form_label('Descripcion', 'descripcion');
+	echo form_input($data_descrip);
+	?>
